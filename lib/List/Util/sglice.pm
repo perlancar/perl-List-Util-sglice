@@ -56,6 +56,7 @@ sub sglice(&\@;$) { ## no critic: Subroutines::ProhibitSubroutinePrototypes
     }
 }
 1;
+# ABSTRACT: Remove some elements where code returns true
 
 =head1 SYNOPSIS
 
