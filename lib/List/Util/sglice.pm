@@ -70,16 +70,16 @@ sub sglice(&\@;$) { ## no critic: Subroutines::ProhibitSubroutinePrototypes
  #                      /     ---------------------- 2nd param: the array
  #                     /     /  -------------------- 3rd param: (optional) how many matching elems to remove, undef means all, negative allowed to mean last N matching elems
  #                    /     /  /
- sglice { $_ % 2 == 0 ? () : ($_) } @ary    ;  # => (1,3,5,7,9)
+ sglice { $_ % 2 == 0 } @ary    ;  # => (1,3,5,7,9)
 
  # 3. remove first two even numbers
- sglice { $_ % 2 == 0 ? () : ($_) } @ary,  2;  # => (1,3,5,6,7,8,9,10)
+ sglice { $_ % 2 == 0 } @ary,  2;  # => (1,3,5,6,7,8,9,10)
 
  # 4. remove last two even numbers
- sglice { $_ % 2 == 0 ? () : ($_) } @ary, -2;  # => (1,2,3,4,5,6,7,9)
+ sglice { $_ % 2 == 0 } @ary, -2;  # => (1,2,3,4,5,6,7,9)
 
  # 5. remove elements #0..#2, equivalent to: splice @ary, 0, 2
- sglice { $_[1] <= 2 ? () : ($_) }  @ary;      # => (4,5,6,7,8,9,10)
+ sglice { $_[1] <= 2  } @ary;      # => (4,5,6,7,8,9,10)
 
  # 6. put even numbers to the beginning of array
  unshift @ary, sglice { $_ % 2 == 0 } @ary;  # => (2,4,6,8,10,  1,3,5,7,9)
