@@ -12,7 +12,6 @@ use Exporter 'import';
 
 our @EXPORT_OK = qw(
                        sglice
-                       msplice
                );
 
 sub sglice(&\@;$) { ## no critic: Subroutines::ProhibitSubroutinePrototypes
@@ -104,7 +103,7 @@ Usage:
 C<sglice> (mnemonic: "g" is for I<grep>) somewhat resembles C<splice>. Instead
 of specifying offset and number of elements to remove from C<ARRAY>, you specify
 C<CODE> to match elements to remove. Unlike C<splice>, C<sglice> does not let
-you reinsert new items (see L<List::Util::msplice> for that).
+you reinsert new items (see L<List::Util::mapsplice> for that).
 
 In B<CODE>, C<$_> (as well as C<$_[0]>) is set to array element. C<$_[1]> is set
 to the index of the element, so you can still remove elements by their position.
